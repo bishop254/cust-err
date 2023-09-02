@@ -11,7 +11,7 @@ export class WidgetServService {
   load() {
     return this.http
       .get<Record<string, string | number>[]>(
-        `https://jsonplaceholder.typicode.com/todoss?_start=0&_limit=3`
+        `https://jsonplaceholder.typicode.com/todos?_start=0&_limit=3`
       )
       .pipe(
         catchError(() => {
