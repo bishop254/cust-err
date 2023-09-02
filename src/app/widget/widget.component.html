@@ -1,0 +1,33 @@
+<div>
+  <h2>Custom Error Handling In Angular</h2>
+  <br />
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>List of Tasks</mat-card-title>
+      <mat-card-subtitle *ngIf="error">
+        <p id="error">
+          {{ error }}
+        </p>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="/assets/err.jpg" alt="Photo of a Shiba Inu" />
+
+    <mat-card-content>
+      <ul class="tasks" *ngIf="tasks$ | async as tasks">
+        <li class="task mat-body" *ngFor="let task of tasks">
+          {{ task["title"] }}
+        </li>
+        <li class="no-data mat-caption" *ngIf="tasks.length === 0">
+          No Tasks In Backlog
+        </li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="addTask()">
+        Add New Task
+      </button>
+      <!-- <button mat-button>SHARE</button> -->
+    </mat-card-actions>
+  </mat-card>
+</div>
